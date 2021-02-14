@@ -22,11 +22,13 @@ public class SpringRestClient {
         ResponseEntity<String> result2 = restTemplate.postForEntity("http://91.241.64.178:7081/api/users", requestBody, String.class);
         System.out.println(result2);
 
+
         // Update user
         User updatedUser = new User(3L, "Thomas", "Shelby", (byte) 55);
         HttpEntity<User> userHttpEntity = new HttpEntity<>(updatedUser, headers);
         ResponseEntity<String> result3 = restTemplate.exchange("http://91.241.64.178:7081/api/users", HttpMethod.PUT, userHttpEntity, String.class);
         System.out.println(result3);
+
 
         // Delete user
         HttpEntity<String> requestBody2 = new HttpEntity<>(null, headers);
